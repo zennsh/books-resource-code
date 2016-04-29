@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by 502396513 on 4/25/2016.
+ * Created by ZHEN on 4/25/2016.
  */
 public class SerialCloneTest {
     public static void main(String[] args) {
