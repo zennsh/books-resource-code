@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * Enter a pattern and strings to match, or hit Cancel
  * to exit. If the pattern contains groups, the group
  * boundaries are displayed in the match.
- *
+ * <p>
  * Created by ZHEN on 4/29/2016.
  */
 public class RegexTest {
@@ -32,7 +32,7 @@ public class RegexTest {
 
         Pattern pattern = Pattern.compile(pattenStr);
 
-        in = new Scanner(new FileInputStream(path + "RegexTest.txt"), "utf-8");
+//        in = new Scanner(new FileInputStream(path + "RegexTest.txt"), "utf-8");
         while (true) {
             System.out.println("Enter string to match:");
             String input = in.nextLine();
@@ -45,13 +45,18 @@ public class RegexTest {
                 if (g > 0) {
                     for (int i = 0; i < input.length(); i++) {
                         for (int j = 1; j <= g; j++) {
-                            if (i == matcher.start(j)) {
+                            if (i == matcher.start(j) && i == matcher.end(j)) {
+                                System.out.print("()");
+                            }
+                        }
+                        for (int j = 1; j <= g; j++) {
+                            if (i == matcher.start(j) && i != matcher.end(j)) {
                                 System.out.print("(");
                             }
                         }
                         System.out.print(input.charAt(i));
                         for (int j = 1; j <= g; j++) {
-                            if (i + 1 == matcher.end(j)) {
+                            if (i + 1 != matcher.start(j) && i + 1 == matcher.end(j)) {
                                 System.out.print(")");
                             }
                         }
