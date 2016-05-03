@@ -31,7 +31,7 @@ public class TextFileTest {
 //            e.printStackTrace();
 //        }
 
-        try (Scanner in = new Scanner(new FileInputStream(path + "employee.dat"), "utf-8")) {
+        try (Scanner in = new Scanner(new FileInputStream(path + "employee.dat"))) {
             Employee[] newStaff = readData(in);
             for (Employee ee : newStaff) {
                 System.out.println(ee.toString());
