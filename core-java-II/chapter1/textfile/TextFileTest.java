@@ -1,10 +1,8 @@
-package chapter1.TextFile;
+package chapter1.textfile;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-import sun.management.counter.perf.PerfInstrumentation;
-
-import java.io.*;
-import java.net.URL;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;

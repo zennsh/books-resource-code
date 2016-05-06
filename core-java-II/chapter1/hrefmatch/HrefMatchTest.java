@@ -1,6 +1,4 @@
-package chapter1.HrefMatch;
-
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+package chapter1.hrefmatch;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

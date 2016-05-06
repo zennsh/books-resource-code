@@ -1,4 +1,4 @@
-package chapter1.ObjectStream;
+package chapter1.objectstream;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

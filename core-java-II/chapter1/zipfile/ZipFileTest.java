@@ -1,7 +1,14 @@
-package chapter1.ZipFile;
+package chapter1.zipfile;
 
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.DirectoryStream;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
 /**
@@ -17,7 +24,8 @@ public class ZipFileTest {
                 FileSystem fs = FileSystems.newFileSystem(entry, null);
 //                Files.copy(fs.getPath("Chart.js"), Paths.get("C:/Users/502396513/Downloads/111/test"));
                 Files.walkFileTree(fs.getPath("/"), new SimpleFileVisitor<Path>() {
-                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+                    @Override
+					public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
                         System.out.println(file);
                         return FileVisitResult.CONTINUE;
                     }
@@ -28,14 +36,16 @@ public class ZipFileTest {
         }
 
         Files.walkFileTree(dir, new SimpleFileVisitor<Path>() {
-            public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) {
+            @Override
+			public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) {
                 if (attrs.isDirectory()) {
                     System.out.println(path);
                 }
                 return FileVisitResult.CONTINUE;
             }
 
-            public FileVisitResult visitFileFailed(Path path, IOException exc) {
+            @Override
+			public FileVisitResult visitFileFailed(Path path, IOException exc) {
                 return FileVisitResult.CONTINUE;
             }
         });

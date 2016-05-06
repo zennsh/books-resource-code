@@ -1,4 +1,4 @@
-package chapter1.RandomAccessFile;
+package chapter1.randomaccessfile;
 
 import java.io.DataInput;
 import java.io.DataOutput;
